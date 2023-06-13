@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Trait\AuthTrait;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\MailVerification;
-
+use App\Models\User;
 
 
 class AuthController extends Controller
@@ -33,5 +33,21 @@ class AuthController extends Controller
             return response()->json(['error' => $exc->getMessage()]);
         }
          return $data;
+    }
+     public function register(Request $request){
+        $request ->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'password'=>'required'
+        ]);
+        try{
+           $user =new User($request->toArray());
+            $user->password = bcrypt($request->password);
+            $user->save();
+             $token = $user->createToken(env('APP_NAME'));
+            return response()->json($this->responseToken($token), 200);
+        }catch(\Exception $exc){
+            return response()->json(['error' => $exc->getMessage()]);
+        }
     }
 }

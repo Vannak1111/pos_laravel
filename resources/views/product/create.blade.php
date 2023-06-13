@@ -10,6 +10,8 @@
                 <input type="text" name="name" id="name" class="form-control"></br>
                 <label>Type</label></br>
                 <input type="text" name="type" id="type" class="form-control"></br>
+                <label>Supplier_ID</label></br>
+                <input type="text" name="supplier_id" id="supplier_id" class="form-control"></br>
                 <label>Quantity</label></br>
                 <input type="text" name="quantity" id="quantity" class="form-control"></br>
                 <div class="container">

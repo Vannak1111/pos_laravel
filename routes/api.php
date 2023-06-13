@@ -28,4 +28,5 @@ Route::middleware('auth:api')->namespace("App\\Http\\Controllers\\Api\\")->group
  
 Route::controller(AuthController::class)->group(function (){
    Route::post('login','login');
+   Route::post('register','register');
 });

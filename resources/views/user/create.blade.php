@@ -10,6 +10,8 @@
                 <input type="text" name="name" id="name" class="form-control"></br>
                 <label>email</label></br>
                 <input type="text" name="email" id="address" class="form-control"></br>
+                <label>phone</label></br>
+                <input type="text" name="phone" id="address" class="form-control"></br>
                 <label>password</label></br>
                 <input type="text" name="password" id="password" class="form-control"></br>
                 <div class="container">

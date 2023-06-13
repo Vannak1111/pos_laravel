@@ -14,4 +14,7 @@ class Product extends Model
         'type',
         'quantity',
     ];
+    public function getSupplieName(){
+        return $this->belongsTo(Supplier::class,'supplier_id');
+    }
 }

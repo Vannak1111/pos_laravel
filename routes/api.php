@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->namespace("App\\Http\\Controllers\\Api\\")->group(function (){
+    Route::prefix('product')-> controller(ProductController::class)->group(function (){
+    Route::get('/','index');
+    Route::post('/','store');
+    Route::delete('/{id}','destroy');
+    Route::post('/{id}','update');
+});
+});
+ 
+Route::controller(AuthController::class)->group(function (){
+   Route::post('login','login');
 });

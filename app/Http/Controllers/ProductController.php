@@ -9,6 +9,8 @@ class ProductController extends Controller
 {
     public function index(){
       $product = Product::all();
+      // $supplier = $product->getSupplieName;
+      // dd($supplier->name);
       return view('product.index',compact('product'));
     }
     public function create(){
@@ -16,13 +18,6 @@ class ProductController extends Controller
     }
     public function store(Request $request){
       $all = $request->all();
-      $name = $request->input('name');
-      $type = $request->input('type');
-      $quantity = $request->input('quantity');
-    //   if($name ==null || $type==null||$quantity ==null){
-    //   return redirect()->back() ->with('alert', 'Updated!');
-    //     // dd("null value some input ");      
-    // }
       Product::create($all);
       return redirect('product/create');
     }
@@ -33,6 +28,7 @@ class ProductController extends Controller
     }
     public function edit($id){
         $product = Product::find($id);
+        
         return view('product.edit',compact('product'));
     }
     public function update(Request $request , $id ){

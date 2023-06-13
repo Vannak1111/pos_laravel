@@ -13,16 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('suppliers', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('phone_number');
-            $table->string('company_name');
-            $table->string('address');
-            $table->timestamps();
+       Schema::table('products', function (Blueprint $table) {
+            $table->unsignedBigInteger('supplier_id');
         });
     }
-    
+
     /**
      * Reverse the migrations.
      *
@@ -30,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('suppliers');
+        Schema::table('products', function (Blueprint $table) {
+            //
+        });
     }
 };

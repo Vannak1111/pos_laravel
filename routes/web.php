@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SupplierController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,19 +16,30 @@ use App\Http\Controllers\ProductController;
 */
 
 // User
-Route::get('user',[UserController::class,'index']);
-Route::get('user/create',[UserController::class,'create']);
-Route::post('user',[UserController::class,'store']);
-Route::delete('user/{id}',[UserController::class,'destroy']);
-Route::get('user/{id}/edit',[UserController::class,'edit']);
-Route::put('user/{id}',[UserController::class,'update']);
+Route::prefix('user')->controller(UserController::class)->group(function(){
+ Route::get('/','index');
+    Route::get('/create', 'create');
+    Route::post('/','store');
+    Route::delete('/{id}','destroy');
+    Route::get('/{id}/edit','edit');
+    Route::put('/{id}','update');
+});
 // Product
-Route::controller(ProductController::class)->group(function (){
-    Route::get('product','index');
-    Route::get('product/create', 'create');
-    Route::post('product','store');
-    Route::delete('product/{id}','destroy');
-    Route::get('product/{id}/edit','edit');
-    Route::put('product/{id}','update');
+Route::prefix('product')->controller(ProductController::class)->group(function (){
+    Route::get('/','index');
+    Route::get('/create', 'create');
+    Route::post('/','store');
+    Route::delete('/{id}','destroy');
+    Route::get('/{id}/edit','edit');
+    Route::put('/{id}','update');
 });
 
+// Supplier
+Route::prefix('supplier')->controller(SupplierController::class)->group(function(){
+    Route::get('/','index');
+    Route::get('/create','create');
+    Route::post('/','store');
+    Route::delete('/{id}','destory');
+    Route::get('/{id}/edit','edit');
+    Route::put('/{id}','update');
+});

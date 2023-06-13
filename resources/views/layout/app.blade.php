@@ -197,8 +197,8 @@
                                 class="fa fa-youtube-play fa-stack-1x "></i></span>Product</a>
                 </li>
                 <li>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i
-                                class="fa fa-wrench fa-stack-1x "></i></span>Order</a>
+                    <a href="/supplier"><span class="fa-stack fa-lg pull-left"><i
+                                class="fa fa-wrench fa-stack-1x "></i></span>Supplier</a>
                 </li>
                 <li>
                     <a href="#"><span class="fa-stack fa-lg pull-left"><i
